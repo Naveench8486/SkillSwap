@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🔐 Login - SkillSwap</title>
+
+  <!-- 🌑 Dark Mode Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- ✅ Load Socket.IO FIRST -->
+  <script src="/socket.io/socket.io.js"></script>
+
+  <!-- ✅ Redirect if already logged in -->
+  <script>
+    if (localStorage.getItem("token")) {
+      window.location.href = "index.html";
+    }
+  </script>
+
+  <!-- ✅ Load Login Script -->
+  <script defer src="js/login.js"></script>
+</head>
+
+<body>
+  <div class="auth-container">
+    <h2><i class="fas fa-sign-in-alt"></i> SkillSwap - Login</h2>
+    <form id="login-form">
+      <input type="email" id="email" placeholder="Email" required autofocus />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit"><i class="fas fa-arrow-right-to-bracket"></i> Login</button>
+    </form>
+    <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillSwap - Sign Up</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- ✅ Redirect if already logged in -->
+  <script>
+    if (localStorage.getItem("token")) {
+      window.location.href = "index.html";
+    }
+  </script>
+</head>
+<body>
+  <div class="form-container">
+    <h2><i class="fas fa-user-plus"></i> Create Your Account</h2>
+    <form id="signup-form">
+      <input type="text" id="name" placeholder="Full Name" required autocomplete="name" autofocus />
+      <input type="email" id="email" placeholder="Email" required autocomplete="email" />
+      <input type="password" id="password" placeholder="Password" required />
+      <input type="text" id="learnSkill" placeholder="Skill You Want to Learn" required />
+      <input type="text" id="teachSkill" placeholder="Skill You Can Teach" />
+      <button type="submit">
+        <i class="fas fa-user-plus"></i> Register
+      </button>
+    </form>
+    <p>Already have an account? <a href="login.html">Login here</a></p>
+  </div>
+
+  <script src="js/signup.js"></script>
+</body>
+</html>

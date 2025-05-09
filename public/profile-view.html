@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🔍 View Profile | SkillSwap</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- ✅ Auth Check -->
+  <script>
+    if (!localStorage.getItem("token")) {
+      alert("⚠️ Please login first.");
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/profile-view.js" defer></script>
+ 
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h2>👤 User Profile</h2>
+      <button onclick="window.location.href='index.html'">🏠 Home</button>
+    </header>
+
+    <div class="profile-card" id="user-details">
+      <img src="https://ui-avatars.com/api/?name=User" alt="User Avatar" id="user-img"/>
+      <div class="profile-info">
+        <h2 id="user-name">Loading...</h2>
+        <p><strong>Email:</strong> <span id="user-email"></span></p>
+        <p><strong>Skills:</strong> <span id="user-skills"></span></p>
+        <div>
+          <strong>Certifications:</strong>
+          <ul id="user-certs"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <button id="chat-btn">💬 Start Chat</button>
+      <button id="video-btn">📹 Start Video Call</button>
+    </div>
+  </div>
+  
+
+</body>
+</html>

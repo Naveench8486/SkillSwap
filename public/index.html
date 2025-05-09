@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SkillSwap - Home</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+    }
+    .info-section {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .info-section h2 {
+      font-size: 2rem;
+      color: #90caf9;
+      margin-bottom: 10px;
+    }
+
+    .info-section p {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin-bottom: 30px;
+      max-width: 600px;
+      margin-inline: auto;
+      line-height: 1.6;
+    }
+
+    .animations img {
+      max-width: 350px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+    }
+
+    #connect-btn {
+      padding: 12px 20px;
+      font-size: 1.1rem;
+      background: #3a8fd1;
+      border-radius: 10px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #connect-btn:hover {
+      background: #2c7ab9;
+    }
+
+    @media (max-width: 600px) {
+      .info-section h2 {
+        font-size: 1.6rem;
+      }
+      .animations img {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 🔝 Header -->
+  <header class="main-header">
+    <h1><i class="fas fa-lightbulb"></i> SkillSwap</h1>
+    <div class="profile-area">
+      <img id="profile-img" alt="Profile" class="avatar" />
+      <span id="profile-name"></span>
+      <button id="logout-btn" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+    </div>
+  </header>
+
+  <!-- 🌐 Welcome Section -->
+  <main class="dashboard">
+    <section class="info-section">
+      <div class="animations">
+        <img src="https://cdn.dribbble.com/users/1186261/screenshots/15836852/media/cdd2e8c77eb226fcda67c21a2ff7b1ab.gif" alt="Skill Sharing Animation" />
+      </div>
+      <h2>Welcome to SkillSwap!</h2>
+      <p>
+        Share what you know. Learn what you love.<br />
+        SkillSwap connects learners and teachers across the world, empowering collaboration through conversation.
+      </p>
+      <button id="connect-btn">🌐 Connect Now</button>
+    </section>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/auth.js"></script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      checkAuth();
+
+      const userName = localStorage.getItem("username");
+      if (!userName) {
+        alert("⚠️ Session error. Please log in again.");
+        return window.location.href = "login.html";
+      }
+
+      document.getElementById("profile-name").innerText = userName;
+      document.getElementById("profile-img").src = `https://ui-avatars.com/api/?name=${encodeURIComponent(userName)}&background=0D8ABC&color=fff`;
+
+      document.getElementById("profile-img").addEventListener("click", () => {
+        window.location.href = "/profile.html";
+      });
+
+      document.getElementById("logout-btn").addEventListener("click", () => {
+        localStorage.clear();
+        window.location.href = "/login.html";
+      });
+
+      document.getElementById("connect-btn").addEventListener("click", () => {
+        window.location.href = "/globalchat.html";
+      });
+    });
+  </script>
+</body>
+
+
+</html>

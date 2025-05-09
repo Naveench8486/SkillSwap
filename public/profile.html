@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>👤 My Profile - SkillSwap</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #121212;
+      color: #e0e0e0;
+    }
+
+    header {
+      background: #1e1e1e;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 10px;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      color: #90caf9;
+    }
+
+    header button {
+      background: #3a8fd1;
+      border: none;
+      padding: 10px 16px;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .profile-form {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #1e1e1e;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    }
+
+    form label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #90caf9;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="number"],
+    form input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      background: #2a2a2a;
+      border: 1px solid #444;
+      border-radius: 8px;
+      color: white;
+    }
+
+    form button {
+      margin-top: 20px;
+      width: 100%;
+      background: #3a8fd1;
+      border: none;
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+    }
+
+    h3 {
+      margin-top: 40px;
+      margin-bottom: 10px;
+      color: #90caf9;
+    }
+
+    #certifications-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    #certifications-list li {
+      padding: 8px;
+      background: #2c2c2c;
+      margin-bottom: 6px;
+      border-radius: 6px;
+      color: #b0d8ff;
+    }
+
+    @media (max-width: 600px) {
+      .profile-form {
+        margin: 20px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>👤 My Profile</h1>
+    <button onclick="window.location.href='index.html'">🏠 Dashboard</button>
+  </header>
+
+  <main class="profile-form">
+    <form id="profile-form" enctype="multipart/form-data">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required />
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" min="1" />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required />
+
+      <label for="skills">Skills (comma-separated):</label>
+      <input type="text" id="skills" />
+
+      <label for="certification-file">Upload Certification:</label>
+      <input type="file" id="certification-file" accept=".pdf,.jpg,.png,.jpeg,.doc,.docx" />
+
+      <button type="submit">💾 Save Profile</button>
+    </form>
+
+    <h3>📄 Uploaded Certifications:</h3>
+    <ul id="certifications-list"></ul>
+  </main>
+
+  <script src="js/auth.js"></script>
+  <script src="js/profile.js"></script>
+
+
+</body>
+</html>

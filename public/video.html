@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>📹 Video Call | SkillSwap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="/socket.io/socket.io.js"></script>
+  <script defer src="js/video.js"></script>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header>
+      <h2>📹 Live Video Call</h2>
+      <button onclick="window.location.href='index.html'">🏠 Home</button>
+    </header>
+
+    <!-- Video Section -->
+    <div class="video-section" style="margin-top: 30px;">
+      
+      <!-- Status -->
+      <div style="margin-bottom: 20px;">
+        <p id="call-status" style="font-size: 1.1rem; color: #90caf9;">Status: Connecting...</p>
+        <p id="stream-status" style="font-size: 1rem; color: #ccc;">Camera: 🔘 Inactive</p>
+      </div>
+
+      <!-- Video Area -->
+      <div class="videos" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+        <video id="my-video" autoplay muted playsinline 
+          style="background: #000; width: 45%; max-width: 480px; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.6);"></video>
+
+        <video id="remote-video" autoplay playsinline 
+          style="background: #000; width: 45%; max-width: 480px; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.6);"></video>
+      </div>
+
+      <!-- Buttons -->
+      <div class="video-buttons" style="margin-top: 30px; text-align: center;">
+        <button id="share-screen-btn">📺 Share Screen</button>
+        <button onclick="endCall()">🔴 End Call</button>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+</html>
